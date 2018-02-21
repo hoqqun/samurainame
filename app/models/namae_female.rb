@@ -1,0 +1,2 @@
+class NamaeFemale < ApplicationRecord
+end

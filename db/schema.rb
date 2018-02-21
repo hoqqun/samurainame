@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180215113731) do
+ActiveRecord::Schema.define(version: 20180220235530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "myoujis", force: :cascade do |t|
+    t.string "romeji"
+    t.string "nihongo"
+    t.integer "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "namae_females", force: :cascade do |t|
     t.string "romeji"
     t.string "nihongo"
     t.integer "count"
@@ -29,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180215113731) do
     t.integer "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "male", default: true, null: false
   end
 
 end
