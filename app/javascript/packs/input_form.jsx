@@ -12,7 +12,7 @@ import Paper from 'material-ui/Paper'
 class InputForm extends Component {
   constructor(props) {
     super(props)
-    this.state = {name: "", nihongo: "しむら", male:true, birth_year:"1999", birth_month:"01", birth_day:"01"}
+    this.state = {name: "", romeji: "Shimura", nihongo: "しむら", male:true, birth_year:"1999", birth_month:"01", birth_day:"01"}
   }
 
   onClickSubmit() {
@@ -38,7 +38,7 @@ class InputForm extends Component {
         }})
     })
     .then((response) => response.json())
-    .then((json) => this.setState({nihongo: json.nihongo}))
+    .then((json) => this.setState({nihongo: json.nihongo, romeji: json.romeji}))
   }
 
   onChangeName(event) {
@@ -73,7 +73,7 @@ class InputForm extends Component {
     return (
       <MuiThemeProvider>
         <div>
-          <div><TextField hintText="FirstName LastName" onChange={(event) => this.onChangeName(event)} /></div>
+          <div><TextField hintText="FirstName LastName" errorText="Error" onChange={(event) => this.onChangeName(event)} /></div>
           <div>
             <RadioButtonGroup name="male" defaultSelected="on" onChange={(event,value) => this.onChangeMale(event,value)}>
               <RadioButton value="on" label="Male"/>
@@ -83,7 +83,7 @@ class InputForm extends Component {
           <div><DatePicker hintText="Your Birth Day" container="inline" onChange={(event, date) => this.onChangeDate(event,date)} /></div>
           <div><RaisedButton label="Generate" onClick={() => this.onClickSubmit()} style={style} /></div>
           <br/>
-          <div><Display nihongo={this.state.nihongo}/></div>
+          <div><Display nihongo={this.state.nihongo} romeji={this.state.romeji} /></div>
         </div>
       </MuiThemeProvider>
     )
@@ -114,12 +114,30 @@ class Display extends Component {
       display: 'inline-block',
     }
 
+    const style_paper2 = {
+      height: 50,
+      width: 50,
+      margin: 5,
+      padding:15,
+      textAlign: 'center',
+      display: 'inline-block',
+    }
+
+
     return (
       <div>
-        { this.props.nihongo.split('').map((c) => {
-          return <Paper style={style_paper} zDepth={2} key={c}><font font-family="serif" size='7'>{c}</font></Paper>
-          })
-        }
+        <div>
+          { this.props.nihongo.split('').map((c) => {
+            return <Paper style={style_paper} zDepth={2} key={c}><font fontFamily="serif" size='7'>{c}</font></Paper>
+            })
+          }
+        </div>
+        <div>
+          { this.props.romeji.split('').map((c) => {
+            return <Paper style={style_paper2} zDepth={2}><font fontFamily="serif" size='4'>{c}</font></Paper>
+            })
+          }
+        </div>
       </div>
     )
   }

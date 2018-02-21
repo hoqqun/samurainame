@@ -13,11 +13,11 @@ class NamesController < ApplicationController
       ),
       params[:name][:male]
     )
-    
+
     given_name = aplicant.meimei
 
     respond_to do |format|
-      format.json { render json: {nihongo:given_name[:nihongo] }}
+      format.json { render json: {nihongo:given_name[:nihongo], romeji:given_name[:romeji] }}
     end
   end
 
