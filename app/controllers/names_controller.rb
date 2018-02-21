@@ -4,7 +4,6 @@ class NamesController < ApplicationController
 
   def fetch
 
-    binding.pry
     aplicant = Aplicant.new(
       params[:name][:name],
       Birth.new(
@@ -14,6 +13,7 @@ class NamesController < ApplicationController
       ),
       params[:name][:male]
     )
+    
     given_name = aplicant.meimei
 
     respond_to do |format|
@@ -41,7 +41,7 @@ class Aplicant
   def initialize(original_name,birth,male)
     @original_name = original_name
     @birth = birth
-    @male =male
+    @male = male
   end
   
   def meimei()
