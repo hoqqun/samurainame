@@ -49,18 +49,6 @@ class InputForm extends Component {
     this.setState({male: value == "on"})
   }
 
-  onChangeBirthYear(event) {
-    this.setState({birth_year: event.target.value})
-  }
-
-  onChangeBirthMonth(event) {
-    this.setState({birth_month: event.target.value})
-  }
-
-  onChangeBirthDay(event) {
-    this.setState({birth_day: event.target.value})
-  }
-
   onChangeDate(event,date) {
     this.setState({birth_year: date.getFullYear(), birth_month: date.getMonth(), birth_day: date.getDate()})
   }
