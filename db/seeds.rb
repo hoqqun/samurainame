@@ -13,7 +13,7 @@
 #Namae.reset_pk_sequence!
 
 myouji_list = [["Akimoto","秋元"],["Shimura","志村"]]
-namae_list  = [["Tarou","太郎",true],["Jirou","次郎",true]]
+namae_list  = [["Tarou","太郎",true],["Jirou","次郎",true],["Himura Kenshin","緋村　剣心",true]]
 namae_female_list = [["Aiko","愛子"],["Hanako","花子"]]
 
 myouji_list.each do |myouji|
