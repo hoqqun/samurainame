@@ -59,8 +59,14 @@ class App extends Component {
   }
 
   // 未来日付チェック
-  futureDate(value) {
-    //未実装
+  futureDate(date) {
+    let today = new Date()
+
+    if (date.getTime() <= today.getTime()) {
+      return true
+    } else {
+      return false
+    }
   }
 
   validate(value,type) {
@@ -105,7 +111,7 @@ class App extends Component {
   // OriginalNameコンポーネント用イベントハンドラ
   // 入力チェックを行ったあとに、必要stateを更新する
   onChangeName(event) {
-    if (/^[A-Za-z\s]+$/.test(event.target.value)) {
+    if (this.alphabet(event.target.value)) {
       this.setState({name: event.target.value})
       this.setState({formValid:{name:true, date:this.state.formValid.date}})
     } else {
@@ -132,7 +138,7 @@ class App extends Component {
     let str = date.getFullYear() + "-" + this.getTrueMonthStr(date.getMonth()) + "-" + date.getDate()
     let today = new Date()
 
-    if ((date.getTime() <= today.getTime()) && /^[12][0-9][0-9][0-9]-[0-9]+-[0-9]+$/.test(str)) {
+    if (this.dateFormat(str) && this.futureDate(date)) {
       this.setState({formValid:{name:this.state.formValid.name,date:true}})
       this.setState({birth_year: date.getFullYear(), birth_month: date.getMonth(), birth_day: date.getDate()})
     } else {
