@@ -20,8 +20,61 @@ class App extends Component {
       formErrors: {name: '', date: ''},
       formValid: {name:false, date:false},
     }
+
+    const type = {
+      required: "required",
+      alphabet: "alphabet",
+      futureDate: "futureDate"
+    }
   }
 
+  // 必須入力チェック
+  // nullまたはブランの場合、falseを返す。それ以外はtrue
+  required(value) {
+    if ( value == null || value == "") {
+      return false
+    } else {
+      return true
+    }
+  }
+
+  // 半角英チェック
+  // ビッグレタースモールレター の半角英字と半角スペースだけであれば、true。それ以外false
+  alphabet(value) {
+    if (/^[A-Za-z\s]+$/.test(value)) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  // デートフォーマットチェック
+  // 1YYY-MM-DD or 2YYY-MM-DDであれば、true。それ以外false
+  dateFormat(value) {
+    if (/^[12][0-9][0-9][0-9]-[0-9]+-[0-9]+$/.test(value)) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  // 未来日付チェック
+  futureDate(value) {
+    //未実装
+  }
+
+  validate(value,type) {
+    if (type == "required") {
+      return required(value)
+    } else if (type == "alphabet") {
+      return alphabet(value)
+    } else if (type == "futureDate") {
+      return futureDate(value)
+    } else if (type == "dateFormat") {
+      return dateFormat(value)
+    }
+  }
+  
   // Generateボタンイベントハンドラ
   // バリデーションエラーがないことを確認したあとに、fetchAPI通信を行う
   onClickSubmit() {
