@@ -22,8 +22,9 @@ class App extends Component {
     }
   }
 
+  // Generateボタンイベントハンドラ
+  // バリデーションエラーがないことを確認したあとに、fetchAPI通信を行う
   onClickSubmit() {
-
     if(this.state.formValid.name == true && this.state.formValid.date == true) {
 
       const csrfToken = document.getElementsByName('csrf-token').item(0).content
@@ -48,6 +49,8 @@ class App extends Component {
     }
   }
 
+  // OriginalNameコンポーネント用イベントハンドラ
+  // 入力チェックを行ったあとに、必要stateを更新する
   onChangeName(event) {
     if (/^[A-Za-z\s]+$/.test(event.target.value)) {
       this.setState({name: event.target.value})
@@ -59,16 +62,20 @@ class App extends Component {
     }
   }
 
+  // GenderRadioButtonコンポーネント用イベントハンドラ
   onChangeMale(event,value) {
     this.setState({male: value == "on"})
   }
 
+  // Javascript Dateオブジェクトより取得した月に+1月する
+  // JS DateオブジェクののgetMonthメソッドは曲者で、本当の月ではなく0〜11を返すため
   getTrueMonthStr(month) {
     return String(Number(month) + 1)
   }
 
+  // DatePickerコンポーネント用のイベントハンドラ
+  // 入力チェックを行ったあと、Stateを更新する
   onChangeDate(event,date) {
-
     let str = date.getFullYear() + "-" + this.getTrueMonthStr(date.getMonth()) + "-" + date.getDate()
     let today = new Date()
 
