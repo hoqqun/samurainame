@@ -19,6 +19,7 @@ class App extends Component {
       male:true,
       formErrors: {name: '', date: ''},
       formValid: {name:false, date:false},
+      birth_date: {birth_year:0, birth_month:0, birth_date:0}
     }
 
     const type = {
@@ -128,19 +129,19 @@ class App extends Component {
 
   // Javascript Dateオブジェクトより取得した月に+1月する
   // JS DateオブジェクののgetMonthメソッドは曲者で、本当の月ではなく0〜11を返すため
-  getTrueMonthStr(month) {
-    return String(Number(month) + 1)
+  getTrueMonth(month) {
+    return (Number(month) + 1)
   }
 
   // DatePickerコンポーネント用のイベントハンドラ
   // 入力チェックを行ったあと、Stateを更新する
   onChangeDate(event,date) {
-    let str = date.getFullYear() + "-" + this.getTrueMonthStr(date.getMonth()) + "-" + date.getDate()
+    let str = date.getFullYear() + "-" + String(this.getTrueMonth(date.getMonth())) + "-" + date.getDate()
     let today = new Date()
 
     if (this.dateFormat(str) && this.futureDate(date)) {
       this.setState({formValid:{name:this.state.formValid.name,date:true}})
-      this.setState({birth_year: date.getFullYear(), birth_month: date.getMonth(), birth_day: date.getDate()})
+      this.setState({birth_date:{birth_year: date.getFullYear(), birth_month: this.getTrueMonth(date.getMonth()), birth_day: date.getDate()}})
     } else {
       this.setState({formValid:{name:this.state.formValid.name,date:false}})
     }
