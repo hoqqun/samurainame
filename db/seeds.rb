@@ -6,27 +6,36 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# 苗字をINSERTする。
-#Myouji.delete_all
-#Namae.delete_all
-#Myouji.reset_pk_sequence!
-#Namae.reset_pk_sequence!
+require 'yaml'
+require 'romaji'
+
+NAMES = YAML.load_file('./db/names.yml')
+
+NAMES["first_name"]["male"].each do |name|
+  Namae.new(romeji: Romaji.kana2romaji(name[1]), nihongo: name[0], male: true,count:0).save
+end
+
+NAMES["first_name"]["female"].each do |name|
+  NamaeFemale.new(romeji: Romaji.kana2romaji(name[1]), nihongo: name[0], count:0).save
+end
 
 myouji_list = [["Akimoto","秋元"],["Shimura","志村"]]
-namae_list  = [["Tarou","太郎",true],["Teturou","哲郎",true],["Jirou","次郎",true],["Himura Kenshin","緋村　剣心",true]]
+#namae_list  = [["Tarou","太郎",true],["Teturou","哲郎",true],["Jirou","次郎",true],["Himura Kenshin","緋村　剣心",true]]
 namae_female_list = [["Aiko","愛子"],["Hanako","花子"]]
 
 myouji_list.each do |myouji|
   Myouji.new(romeji: myouji[0], nihongo: myouji[1]).save
 end
 
-namae_list.each do |namae|
-  Namae.new(romeji: namae[0], nihongo: namae[1], male: namae[2]).save
-end
+#namae_list.each do |namae|
+#  Namae.new(romeji: namae[0], nihongo: namae[1], male: namae[2]).save
+#end
 
-namae_female_list.each do |namae|
-  NamaeFemale.new(romeji: namae[0], nihongo: namae[1]).save
-end
+#namae_female_list.each do |namae|
+#  NamaeFemale.new(romeji: namae[0], nihongo: namae[1]).save
+#end
+
+
 
 
 puts "名字テーブル：" + Myouji.count.to_s

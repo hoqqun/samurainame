@@ -87,7 +87,7 @@ class God
   # 命名メソッド
   # WEBサービス利用者の名前と誕生日から命名する
   def meimei
-    getNameObject(Namae.getCandidate(self.aplicant.initialName))
+    getNameObject(Namae.getCandidate(self.aplicant.initialName.downcase))
   end
 
   private 
@@ -99,6 +99,6 @@ class God
 
     # レコード番号を決定する
     def decideRecNum(name_records)
-      (self.aplicant.birth.sumBirth % name_records.count)
+      self.aplicant.birth.sumBirth % name_records.count
     end
 end
