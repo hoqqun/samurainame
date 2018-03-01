@@ -28,11 +28,6 @@ body {
   src: url((asset-path('AoyagiKouzanTOTF.otf'))) format('opentype');
 }
 
-.header {
-  font-family: 'Aoyagi', sans-serif, "Helvetica Neue",Helvetica,Arial,"Yu Gothic",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo !important;
-  font-size: xx-large;
-}
-
 .display {
   font-family: 'Aoyagi', sans-serif, "Helvetica Neue",Helvetica,Arial,"Yu Gothic",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo !important;
 }
@@ -43,10 +38,11 @@ header{
   width:100%;
   overflow: hidden;
   background-color:#212121;
-  border-bottom:solid;
-  border-bottom-color:#616161;
-  min-width:1024px;
-  
+  border-bottom:solid 3px #616161;
+  top:0;
+  position:fixed;
+  height:50px;
+  left:0;
 }
 header h1{
   font-size:150%;
@@ -63,6 +59,7 @@ header h1{
 }
 
 .wrapper{
+  margin-top:50px;
   background-image:image-url('samurai.jpg'); //背景画像の設定
   position:relative;
   display: block;
@@ -75,6 +72,7 @@ header h1{
 }
 .wrapper:before{ //暗くする要素を生成する
   content:"";
+  margin-top:50px;
   display:block;
   background:#000; //暗くする色の指定
   opacity:.6; //透明度の指定
