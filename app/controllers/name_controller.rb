@@ -1,2 +1,0 @@
-class NameController < ApplicationController
-end

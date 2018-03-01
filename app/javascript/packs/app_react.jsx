@@ -24,12 +24,6 @@ class App extends Component {
       formValid: {name:false, date:false},
       birth_date: {birth_year:0, birth_month:0, birth_date:0}
     }
-
-    const type = {
-      required: "required",
-      alphabet: "alphabet",
-      futureDate: "futureDate"
-    }
   }
 
   // 必須入力チェック
@@ -43,9 +37,9 @@ class App extends Component {
   }
 
   // 半角英チェック
-  // ビッグレタースモールレター の半角英字と半角スペースだけであれば、true。それ以外false
+  // ビッグレタースモールレター の半角英字であれば、true。それ以外false
   alphabet(value) {
-    if (/^[A-Za-z\s]+$/.test(value)) {
+    if (/^[A-Za-z]+$/.test(value)) {
       return true
     } else {
       return false
@@ -70,18 +64,6 @@ class App extends Component {
       return true
     } else {
       return false
-    }
-  }
-
-  validate(value,type) {
-    if (type == "required") {
-      return required(value)
-    } else if (type == "alphabet") {
-      return alphabet(value)
-    } else if (type == "futureDate") {
-      return futureDate(value)
-    } else if (type == "dateFormat") {
-      return dateFormat(value)
     }
   }
   
@@ -157,6 +139,8 @@ class App extends Component {
   }
 
   render() {
+    
+    //ボタン用スタイル
     const style = {
       margin: 12,
     }
@@ -188,6 +172,8 @@ class App extends Component {
   }
 }
 
+// 名前入力フィールドのコンポーネント
+// 入力エラーを判定し、表示を切り替えている
 class OriginalName extends Component {
   constructor(props) {
     super(props)
@@ -210,6 +196,7 @@ class OriginalName extends Component {
   }
 }
 
+// 性別ラジオボタンのコンポーネント
 class GenderRadioButtons extends Component {
   constructor(props) {
     super(props)
