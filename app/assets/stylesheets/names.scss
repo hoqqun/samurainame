@@ -45,6 +45,7 @@ header{
   background-color:#212121;
   border-bottom:solid;
   border-bottom-color:#616161;
+  min-width:1024px;
   
 }
 header h1{
@@ -67,7 +68,6 @@ header h1{
   display: block;
   background-repeat: no-repeat;
   background-size:cover;
-  background-position: center center;
   background-attachment: fixed;
   min-height:900px;
   min-width:1024px;
@@ -79,7 +79,6 @@ header h1{
   background:#000; //暗くする色の指定
   opacity:.6; //透明度の指定
   background-size:cover;
-  background-position: center center;
   min-height:900px;
   min-width:1024px;
 }
