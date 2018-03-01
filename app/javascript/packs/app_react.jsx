@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
@@ -30,20 +30,6 @@ class App extends Component {
       alphabet: "alphabet",
       futureDate: "futureDate"
     }
-
-    const muiTheme1 = getMuiTheme({
-      palette : {
-      primary1Color: '#656733', // 深いモスグリーン
-      primary2Color: '#90AD66', // 淡いモスグリーン
-      primary3Color: '#D5EAD8', // ペールグリーン
-  
-      accent1Color: '#B71C1C', // 濃い赤
-      accent2Color: '#aaaaaa', // 薄いグレー
-      accent3Color: '#EDF2C5', // ベージュ
-      textColor:    '#333333', // 黒
-      alternateTextColor: '#ffffff', // 白
-      },
-    })
   }
 
   // 必須入力チェック
@@ -174,8 +160,9 @@ class App extends Component {
     const style = {
       margin: 12,
     }
+
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <div>
           <header>
             <h1>Your Samurai Name Generator</h1>
@@ -213,11 +200,11 @@ class OriginalName extends Component {
   render() {
     if(this.props.formValid == true) {
       return (
-        <TextField hintText="FirstName LastName" floatingLabelText='Your Name' onChange={(event) => this._onChange(event)} />
+        <TextField hintText="FirstName" floatingLabelText='Your Name' onChange={(event) => this._onChange(event)} />
       )
     } else {
       return (
-        <TextField hintText="FirstName LastName" errorText={this.props.formError} floatingLabelText='Your Name' onChange={(event) => this._onChange(event)} />
+        <TextField hintText="FirstName" errorText={this.props.formError} floatingLabelText='Your Name' onChange={(event) => this._onChange(event)} />
       )
     }
   }
