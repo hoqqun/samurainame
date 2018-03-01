@@ -1,3 +1,34 @@
 // Place all the styles related to the names controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.first_logo {
+  background: image-url('logo.jpg');
+  width: 100%;
+  height: 480px;
+}
+
+.result_male {
+  background: image-url('result_male.jpg');
+  width: 100%;
+  height: 480px;
+  font-family: 'Aoyagi', sans-serif, "Helvetica Neue",Helvetica,Arial,"Yu Gothic",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo !important;
+}
+
+@font-face {
+  font-family: 'Aoyagi';
+  font-style: normal;
+  src: url((asset-path('AoyagiKouzanTOTF.otf'))) format('opentype');
+}
+
+.header {
+  font-family: 'Aoyagi', sans-serif, "Helvetica Neue",Helvetica,Arial,"Yu Gothic",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo !important;
+  font-size: xx-large;
+}
+
+.display {
+  font-family: 'Aoyagi', sans-serif, "Helvetica Neue",Helvetica,Arial,"Yu Gothic",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo !important;
+  font-size: 8em;
+  text-align: center;
+
+}

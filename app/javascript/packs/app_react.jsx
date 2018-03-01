@@ -153,18 +153,28 @@ class App extends Component {
       margin: 12,
     }
 
-    return (
-      <MuiThemeProvider>
-        <div>
-          <div><OriginalName formValid={this.state.formValid.name} formError={this.state.formErrors.name} onChange={(event) => this.onChangeName(event)} /></div>
-          <div><GenderRadioButtons onChange={(event,value) => this.onChangeMale(event,value)} /></div>
-          <div><DatePicker floatingLabelText="Your Birth Day" hintText="1986/03/05" container="inline" onChange={(event, date) => this.onChangeDate(event,date)} /></div>
-          <div><RaisedButton label="Generate" onClick={() => this.onClickSubmit()} style={style} /></div>
-          <br/>
-          <div><Display nihongo={this.state.nihongo} romeji={this.state.romeji} /></div>
+    if (this.state.nihongo == "") {
+      return (
+        <MuiThemeProvider>
+          <div>
+            <div className="first_logo"></div>
+            <div><OriginalName formValid={this.state.formValid.name} formError={this.state.formErrors.name} onChange={(event) => this.onChangeName(event)} /></div>
+            <div><GenderRadioButtons onChange={(event,value) => this.onChangeMale(event,value)} /></div>
+            <div><DatePicker floatingLabelText="Your Birth Day" hintText="1986/03/05" container="inline" onChange={(event, date) => this.onChangeDate(event,date)} /></div>
+            <div><RaisedButton label="Generate" onClick={() => this.onClickSubmit()} style={style} /></div>
+            <br/>
+          </div>
+        </MuiThemeProvider>
+      )
+    }
+    else {
+      return (
+        <div className="display">
+          <div className="result_male"></div>
+          <div><Display nihongo={this.state.nihongo} romeji={this.state.romeji} /></div>        
         </div>
-      </MuiThemeProvider>
-    )
+      )
+    }
   }
 }
 

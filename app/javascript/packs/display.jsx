@@ -32,18 +32,8 @@ class Display extends Component {
 
     return (
       <div>
-        <div>
-          { this.props.nihongo.split('').map((c) => {
-            return <Paper style={style_paper} zDepth={2} key={c}><font fontFamily="serif" size='7'>{c}</font></Paper>
-            })
-          }
-        </div>
-        <div>
-          { this.props.romeji.split('').map((c) => {
-            return <Paper style={style_paper2} zDepth={2}><font fontFamily="serif" size='4'>{c}</font></Paper>
-            })
-          }
-        </div>
+        <div>{this.props.nihongo}</div>
+        <div>{this.props.romeji}</div>
       </div>
     )
   }
