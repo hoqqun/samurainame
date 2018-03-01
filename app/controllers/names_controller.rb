@@ -87,7 +87,11 @@ class God
   # 命名メソッド
   # WEBサービス利用者の名前と誕生日から命名する
   def meimei
-    getNameObject(Namae.getCandidate(self.aplicant.initialName.downcase))
+    if self.aplicant.male 
+      getNameObject(Namae.getCandidate(self.aplicant.initialName.downcase))
+    else
+      getNameObject(NamaeFemale.getCandidate(self.aplicant.initialName.downcase))
+    end
   end
 
   private 

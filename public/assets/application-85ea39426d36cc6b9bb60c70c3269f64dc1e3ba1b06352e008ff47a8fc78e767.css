@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/* line 5, /home/esumura/workspace/samurainame/app/assets/stylesheets/names.scss */
+.logo {
+  background: url(/assets/logo-63e00662e6d26de5b87edd6a667f1ec50f007e812976519e170c89ca4dcfcae5.jpg);
+}
+
+@font-face {
+  font-family: 'Aoyagi';
+  font-style: normal;
+  src: url("/assets/AoyagiKouzanTOTF-733174afb970012aa5446607d36094754bd79fb3dc4899c5efd1782db00c1994.otf") format("otf");
+}
+/* line 15, /home/esumura/workspace/samurainame/app/assets/stylesheets/names.scss */
+.header {
+  font-family: 'Aoyagi', sans-serif, "Helvetica Neue",Helvetica,Arial,"Yu Gothic",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo !important;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+ body {
+  margin: 0 auto;
+  max-width: 50%;
+}
