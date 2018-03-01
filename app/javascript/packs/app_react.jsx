@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
 import DatePicker from 'material-ui/DatePicker'
+import AppBar from 'material-ui/AppBar';
 import Display from './display.jsx'
 
 
@@ -27,6 +30,20 @@ class App extends Component {
       alphabet: "alphabet",
       futureDate: "futureDate"
     }
+
+    const muiTheme1 = getMuiTheme({
+      palette : {
+      primary1Color: '#656733', // 深いモスグリーン
+      primary2Color: '#90AD66', // 淡いモスグリーン
+      primary3Color: '#D5EAD8', // ペールグリーン
+  
+      accent1Color: '#B71C1C', // 濃い赤
+      accent2Color: '#aaaaaa', // 薄いグレー
+      accent3Color: '#EDF2C5', // ベージュ
+      textColor:    '#333333', // 黒
+      alternateTextColor: '#ffffff', // 白
+      },
+    })
   }
 
   // 必須入力チェック
@@ -82,6 +99,11 @@ class App extends Component {
     }
   }
   
+  // backボタンイベントハンドラ
+  onClickBack() {
+    window.location.href = "./"
+  }
+
   // Generateボタンイベントハンドラ
   // バリデーションエラーがないことを確認したあとに、fetchAPI通信を行う
   onClickSubmit() {
@@ -152,29 +174,30 @@ class App extends Component {
     const style = {
       margin: 12,
     }
-
-    if (this.state.nihongo == "") {
-      return (
-        <MuiThemeProvider>
-          <div>
-            <div className="first_logo"></div>
-            <div><OriginalName formValid={this.state.formValid.name} formError={this.state.formErrors.name} onChange={(event) => this.onChangeName(event)} /></div>
-            <div><GenderRadioButtons onChange={(event,value) => this.onChangeMale(event,value)} /></div>
-            <div><DatePicker floatingLabelText="Your Birth Day" hintText="1986/03/05" container="inline" onChange={(event, date) => this.onChangeDate(event,date)} /></div>
-            <div><RaisedButton label="Generate" onClick={() => this.onClickSubmit()} style={style} /></div>
-            <br/>
-          </div>
-        </MuiThemeProvider>
-      )
-    }
-    else {
-      return (
-        <div className="display">
-          <div className="result_male"></div>
-          <div><Display nihongo={this.state.nihongo} romeji={this.state.romeji} /></div>        
+    return (
+      <MuiThemeProvider>
+        <div>
+          <header>
+            <h1>Your Samurai Name Generator</h1>
+          </header>
+          <section className="wrapper">
+            <div className="centering">
+              <div className="please_input">Please Input</div>
+              <div className="wrapper_form">
+                <div><OriginalName formValid={this.state.formValid.name} formError={this.state.formErrors.name} onChange={(event) => this.onChangeName(event)} /></div>
+                <div><GenderRadioButtons onChange={(event,value) => this.onChangeMale(event,value)} /></div>
+                <div><DatePicker floatingLabelText="Your Birth Day" hintText="1986/03/05" container="inline" onChange={(event, date) => this.onChangeDate(event,date)} /></div>
+                <div><RaisedButton primary={true} label="Generate" onClick={() => this.onClickSubmit()} style={style} /></div>
+              </div>
+              <div className="wrapper_display">
+                <Display nihongo={this.state.nihongo} romeji={this.state.romeji} reset={() => this.onClickBack()}/>
+              </div>
+            </div>
+          </section>
+          <footer><h1>Copyright(c)2018 Esumura,Fukuda,Kurihara. Allright Reserved.</h1></footer>
         </div>
-      )
-    }
+      </MuiThemeProvider>
+    )
   }
 }
 
