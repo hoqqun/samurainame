@@ -8,8 +8,8 @@ import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
 import DatePicker from 'material-ui/DatePicker'
-import AppBar from 'material-ui/AppBar';
 import Display from './display.jsx'
+import ErrorDialog from './error_dialog.jsx'
 
 
 class App extends Component {
@@ -96,6 +96,8 @@ class App extends Component {
       })
       .then((response) => response.json())
       .then((json) => this.setState({nihongo: json.nihongo, romeji: json.romeji}))
+    } else {
+      this.refs.error.handleOpen()
     }
   }
 
@@ -149,7 +151,7 @@ class App extends Component {
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <div>
           <header>
-            <h1>Your Samurai Name Generator</h1>
+            <h1>Your Samurai Name Generator ver1.0</h1>
           </header>
           <section className="wrapper">
             <div className="centering">
@@ -157,8 +159,9 @@ class App extends Component {
               <div className="wrapper_form">
                 <div><OriginalName formValid={this.state.formValid.name} formError={this.state.formErrors.name} onChange={(event) => this.onChangeName(event)} /></div>
                 <div><GenderRadioButtons onChange={(event,value) => this.onChangeMale(event,value)} /></div>
-                <div><DatePicker floatingLabelText="Your Birth Day" hintText="1986/03/05" container="inline" onChange={(event, date) => this.onChangeDate(event,date)} /></div>
+                <div><DatePicker maxDate={new Date()}floatingLabelText="Your Birth Day" hintText="1986/03/05" container="inline" onChange={(event, date) => this.onChangeDate(event,date)} /></div>
                 <div><RaisedButton primary={true} label="Generate" onClick={() => this.onClickSubmit()} style={style} /></div>
+                <div><ErrorDialog ref="error"/></div>
               </div>
               <div className="wrapper_display">
                 <Display nihongo={this.state.nihongo} romeji={this.state.romeji} reset={() => this.onClickBack()}/>
