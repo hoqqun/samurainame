@@ -1,0 +1,207 @@
+@charset "UTF-8";
+/* line 5, /home/hoqqun/workspace/samurainame/app/assets/stylesheets/names.scss */
+body {
+  background-color: #625C57;
+}
+
+/* line 10, /home/hoqqun/workspace/samurainame/app/assets/stylesheets/names.scss */
+.romeji {
+  margin-top: 0px;
+  font-size: 3rem;
+  margin-left: 23px;
+}
+
+/* line 16, /home/hoqqun/workspace/samurainame/app/assets/stylesheets/names.scss */
+.meimei {
+  font-size: 4rem;
+  margin-bottom: 15px;
+}
+
+/* line 21, /home/hoqqun/workspace/samurainame/app/assets/stylesheets/names.scss */
+.namae {
+  font-size: 10rem;
+}
+
+@font-face {
+  font-family: 'Aoyagi';
+  font-style: normal;
+  src: url("/assets/AoyagiKouzanTOTF-733174afb970012aa5446607d36094754bd79fb3dc4899c5efd1782db00c1994.otf") format("opentype");
+}
+/* line 31, /home/hoqqun/workspace/samurainame/app/assets/stylesheets/names.scss */
+.display {
+  font-family: 'Aoyagi', sans-serif, "Helvetica Neue",Helvetica,Arial,"Yu Gothic",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo !important;
+}
+
+/*****HEADER*****/
+/* line 36, /home/hoqqun/workspace/samurainame/app/assets/stylesheets/names.scss */
+header {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  background-color: #212121;
+  border-bottom: solid 3px #616161;
+  top: 0;
+  position: fixed;
+  height: 50px;
+  left: 0;
+}
+
+/* line 47, /home/hoqqun/workspace/samurainame/app/assets/stylesheets/names.scss */
+header h1 {
+  font-size: 150%;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  font-weight: 400;
+  float: left;
+  font-family: 'Aoyagi', sans-serif, "Helvetica Neue",Helvetica,Arial,"Yu Gothic",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo !important;
+}
+
+/* line 61, /home/hoqqun/workspace/samurainame/app/assets/stylesheets/names.scss */
+.wrapper {
+  margin-top: 50px;
+  background-image: url(/assets/samurai-fb830e5fbdffa0913cd136309741ad79dd93b785cb55d7e5a80f9611c910869a.jpg);
+  position: relative;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 900px;
+  min-width: 1024px;
+}
+
+/* line 73, /home/hoqqun/workspace/samurainame/app/assets/stylesheets/names.scss */
+.wrapper:before {
+  content: "";
+  margin-top: 50px;
+  display: block;
+  background: #000;
+  opacity: .6;
+  background-size: cover;
+  min-height: 900px;
+  min-width: 1024px;
+}
+
+/* line 84, /home/hoqqun/workspace/samurainame/app/assets/stylesheets/names.scss */
+.wrapper_form {
+  position: absolute;
+  top: 100px;
+  left: 50px;
+  width: 90%;
+  max-width: 320px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.7;
+  padding: 20px 0;
+}
+
+/* line 99, /home/hoqqun/workspace/samurainame/app/assets/stylesheets/names.scss */
+.please_input {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  color: white;
+  font-size: 3rem;
+}
+
+/* line 108, /home/hoqqun/workspace/samurainame/app/assets/stylesheets/names.scss */
+.wrapper_display {
+  position: absolute;
+  top: 100px;
+  left: 450px;
+  color: white;
+  font-family: 'Aoyagi', sans-serif, "Helvetica Neue",Helvetica,Arial,"Yu Gothic",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo !important;
+}
+
+/*****FOOTER*****/
+/* line 117, /home/hoqqun/workspace/samurainame/app/assets/stylesheets/names.scss */
+footer {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  background-color: #212121;
+  bottom: 0;
+}
+
+/* line 127, /home/hoqqun/workspace/samurainame/app/assets/stylesheets/names.scss */
+footer h1 {
+  font-size: 150%;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  font-weight: 400;
+  float: left;
+  font-family: 'Aoyagi', sans-serif, "Helvetica Neue",Helvetica,Arial,"Yu Gothic",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo !important;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+v2.0 | 20110126
+License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+body {
+line-height: 1;
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
