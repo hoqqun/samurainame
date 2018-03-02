@@ -13,7 +13,8 @@ class Aplicant
   end
 
   # 名前(入力された文字列の最初)のイニシャルを取得する
-  def initial_name
-    self.original_name[0]
+  # length : 可変的な取り出しに対応(初期値1文字のみ)
+  def initial_name(length:1)
+    self.original_name[0...length].downcase
   end
 end

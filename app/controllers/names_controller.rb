@@ -2,7 +2,6 @@ class NamesController < ApplicationController
   def index
   end
 
-
   # POSTメソッド fetchAPI ルーティング：/names/fetch
   def fetch
 
