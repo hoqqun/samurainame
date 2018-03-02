@@ -20,23 +20,10 @@ NAMES["first_name"]["female"].each do |name|
 end
 
 myouji_list = [["Akimoto","秋元"],["Shimura","志村"]]
-#namae_list  = [["Tarou","太郎",true],["Teturou","哲郎",true],["Jirou","次郎",true],["Himura Kenshin","緋村　剣心",true]]
-namae_female_list = [["Aiko","愛子"],["Hanako","花子"]]
 
 myouji_list.each do |myouji|
   Myouji.new(romeji: myouji[0], nihongo: myouji[1]).save
 end
-
-#namae_list.each do |namae|
-#  Namae.new(romeji: namae[0], nihongo: namae[1], male: namae[2]).save
-#end
-
-#namae_female_list.each do |namae|
-#  NamaeFemale.new(romeji: namae[0], nihongo: namae[1]).save
-#end
-
-
-
 
 puts "名字テーブル：" + Myouji.count.to_s
 puts "名前(男)テーブル：" + Namae.count.to_s
