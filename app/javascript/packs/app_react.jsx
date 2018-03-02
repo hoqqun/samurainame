@@ -79,7 +79,7 @@ class App extends Component {
 
       const csrfToken = document.getElementsByName('csrf-token').item(0).content
 
-      fetch('http://localhost:3000/names/fetch', {
+      fetch('/names/fetch', {
         method: 'POST',
         credentials: 'same-origin',
         headers: {
