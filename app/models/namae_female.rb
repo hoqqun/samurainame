@@ -3,8 +3,8 @@ class NamaeFemale < ApplicationRecord
   validates :nihongo, presence: true
   validates :count, presence: true
 
-  def self.getCandidate(initialName)
-    str = "#{initialName}%"
+  def self.candidate(initial)
+    str = "#{initial}%"
     NamaeFemale.where('romeji like ?', str)
   end
 end

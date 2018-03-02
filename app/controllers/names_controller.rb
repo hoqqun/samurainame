@@ -53,7 +53,7 @@ class Aplicant
   end
 
   # 名前(入力された文字列の最初)のイニシャルを取得する
-  def initialName
+  def initial_name
     self.original_name[0]
   end
 end
@@ -71,7 +71,7 @@ class Birth
   end
 
   # 誕生年 + 誕生月 + 誕生日を合算
-  def sumBirth
+  def sum_birth
     self.year + self.month + self.day
   end
 end
@@ -88,21 +88,21 @@ class God
   # WEBサービス利用者の名前と誕生日から命名する
   def meimei
     if self.aplicant.male 
-      getNameObject(Namae.getCandidate(self.aplicant.initialName.downcase))
+      name_record(Namae.candidate(self.aplicant.initial_name.downcase))
     else
-      getNameObject(NamaeFemale.getCandidate(self.aplicant.initialName.downcase))
+      name_record(NamaeFemale.candidate(self.aplicant.initial_name.downcase))
     end
   end
 
   private 
     # 名前オブジェクトを取得すう
-    def getNameObject(name_records)
-      recNum = decideRecNum(name_records)
-      name_records[recNum]
+    def name_record(name_records)
+      rec_num = decide_record_num(name_records)
+      name_records[rec_num]
     end
 
     # レコード番号を決定する
-    def decideRecNum(name_records)
-      self.aplicant.birth.sumBirth % name_records.count
+    def decide_record_num(name_records)
+      self.aplicant.birth.sum_birth % name_records.count
     end
 end
