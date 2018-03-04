@@ -159,7 +159,7 @@ class App extends Component {
               <div className="wrapper_form">
                 <div><OriginalName formValid={this.state.formValid.name} formError={this.state.formErrors.name} onChange={(event) => this.onChangeName(event)} /></div>
                 <div><GenderRadioButtons onChange={(event,value) => this.onChangeMale(event,value)} /></div>
-                <div><DatePicker maxDate={new Date()}floatingLabelText="Your Birth Day" hintText="1986/03/05" container="inline" onChange={(event, date) => this.onChangeDate(event,date)} /></div>
+                <div><DatePicker maxDate={new Date()}floatingLabelText="Your Birth Day" hintText="1986/03/05" onChange={(event, date) => this.onChangeDate(event,date)} /></div>
                 <div><RaisedButton primary={true} label="Generate" onClick={() => this.onClickSubmit()} style={style} /></div>
                 <div><ErrorDialog ref="error"/></div>
               </div>
