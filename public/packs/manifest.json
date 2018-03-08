@@ -1,21 +1,10 @@
 {
-<<<<<<< HEAD
-  "app_react.js": "/packs/app_react-bcb7de99a8bf456ed694.js",
-  "app_react.js.map": "/packs/app_react-bcb7de99a8bf456ed694.js.map",
-  "application.js": "/packs/application-b26e977950b182d3d3ed.js",
-  "application.js.map": "/packs/application-b26e977950b182d3d3ed.js.map",
-  "display.js": "/packs/display-b6903f5eb60011140c16.js",
-  "display.js.map": "/packs/display-b6903f5eb60011140c16.js.map",
-  "error_dialog.js": "/packs/error_dialog-81d69b7f7a0d86cb84c2.js",
-  "error_dialog.js.map": "/packs/error_dialog-81d69b7f7a0d86cb84c2.js.map"
-=======
-  "app_react.js": "/packs/app_react-bc7eb5c7d7cf89216208.js",
-  "app_react.js.map": "/packs/app_react-bc7eb5c7d7cf89216208.js.map",
+  "app_react.js": "/packs/app_react-2b1ee8286a29438a8f4e.js",
+  "app_react.js.map": "/packs/app_react-2b1ee8286a29438a8f4e.js.map",
   "application.js": "/packs/application-72ab8afdd881a0f543ce.js",
   "application.js.map": "/packs/application-72ab8afdd881a0f543ce.js.map",
   "display.js": "/packs/display-c7cd8f02326446fbc11d.js",
   "display.js.map": "/packs/display-c7cd8f02326446fbc11d.js.map",
   "error_dialog.js": "/packs/error_dialog-e0bb1037d90820ff0f5b.js",
   "error_dialog.js.map": "/packs/error_dialog-e0bb1037d90820ff0f5b.js.map"
->>>>>>> 8a7fb987f24b97ba99a69a7a0dfdc8d2e2cdf06d
 }
