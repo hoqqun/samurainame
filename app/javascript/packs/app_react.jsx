@@ -154,9 +154,8 @@ class App extends Component {
             <h1>Your Samurai Name Generator ver1.0</h1>
           </header>
           <section className="wrapper">
-            <div className="centering">
-              <div className="please_input">Please Input</div>
               <div className="wrapper_form">
+                <div>Please Input</div>
                 <div><OriginalName formValid={this.state.formValid.name} formError={this.state.formErrors.name} onChange={(event) => this.onChangeName(event)} /></div>
                 <div><GenderRadioButtons onChange={(event,value) => this.onChangeMale(event,value)} /></div>
                 <div><DatePicker maxDate={new Date()}floatingLabelText="Your Birth Day" hintText="1986/03/05" onChange={(event, date) => this.onChangeDate(event,date)} /></div>
@@ -166,7 +165,6 @@ class App extends Component {
               <div className="wrapper_display">
                 <Display nihongo={this.state.nihongo} romeji={this.state.romeji} reset={() => this.onClickBack()}/>
               </div>
-            </div>
           </section>
           <footer><h1>Copyright(c)2018 Esumura,Fukuda,Kurihara. Allright Reserved.</h1></footer>
         </div>
